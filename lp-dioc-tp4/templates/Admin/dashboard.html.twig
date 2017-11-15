@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title 'Admin Dashboard' %}
+{% block title 'Admin Dashboard' %}
+
+{% block body %}
+    {# FIXME: Afficher Hello <firstname> <lastname> #}
+    Hello John Doe
+
+
+    {# FIXME: Lister les utilisateurs et afficher un lien de suppression #}
+<ul>
+    {% for u in user %}
+        <a href="">{{ u.firstname }} {{ u.lastname }} - {{ u.email }}</a>
+        <a href="">delete</a>
+    {% endfor %}
+</ul>
+
+
+    <ul>
+        <li>
+            <a href="/profile/1">John Doe - foo@exemple.org</a>
+            <a href="/admin//delete-user/1">delete</a>
+        </li>
+        <li>
+            <a href="/profile/2">Foo Bar - foo@exemple.org</a>
+            <a href="/admin//delete-user/2">delete</a>
+
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title 'My Profile' %}
+{% block title 'My Profile' %}
+
+{% block body %}
+    <h1>Information :</h1>
+    {% for u in user %}
+    <ul>
+        <li>{{ u.firstname }}</li>
+        <li>{{ u.lastname }}</li>
+        <li>{{ u.email }}</li>
+        <li>{{ u.brithday|date }}</li>
+        <li>{{ u.createdAt|date }}</li>
+        <li>{{ u.updateAt|date }}</li>
+
+    </ul>
+    {% endfor %}
+{#
+    Fixme afficher sous forme de <ul> <li>
+    firstname
+    lastname
+    email
+    birthday
+    createAt
+    updatedAt
+#}
+{#
+    <ul>
+        <li>First name: Foo</li>
+        <li>Last name: Bar</li>
+        <li>Email: user@exemple.org</li>
+        <li>Birthday: January 1, 1980 00:00</li>
+        <li>Created at: January 1, 2017 00:00</li>
+        <li>Updated at: January 2, 2017 00:00</li>
+    </ul>
+#}
+{% endblock %}
