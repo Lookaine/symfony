@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Material :</h1>
+    {% for m in material %}
+        <ul>
+            <li>{{ m.name }}</li>
+            <li>{{ m.weight }}</li>
+            <li><a href={{ path('entity_material_show', {'id' : m.id}) }}><button>show</button></a></li>
+        </ul>
+
+    {% endfor %}
+{% endblock %}

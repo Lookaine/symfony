@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Personne :</h1>
+    {% for p in person %}
+        <ul>
+            <li>{{ p.name }}</li>
+            <li>{{ p.maxweight }}</li>
+            <li><a href={{ path('entity_person_show', {'id' : p.id}) }}><button>show</button></a></li>
+        </ul>
+
+    {% endfor %}
+{% endblock %}

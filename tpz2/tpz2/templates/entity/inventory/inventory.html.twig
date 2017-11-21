@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Inventory :</h1>
+    {% for i in inventory %}
+        <ul>
+            <li>{{ i.numberOfItem }}</li>
+            <li>{{ i.material }}</li>
+            <li>{{ i.person }}</li>
+            <li><a href={{ path('entity_inventory_show', {'id' : i.id}) }}><button>show</button></a></li>
+        </ul>
+
+    {% endfor %}
+{% endblock %}

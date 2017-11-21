@@ -1,25 +1,22 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: nicolas.horn
- * Date: 13/11/17
- * Time: 14:08
+ * Date: 20/11/17
+ * Time: 13:07
  */
 
 namespace App\Entity;
-
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Person
+ * Class MAterial
  * @package App\Entity
  * @ORM\Entity
- * @ORM\Table(name="person")
+ * @ORM\Table(name="material")
  */
 
-class Person
+class Material
 {
     /**
      * @var int
@@ -29,6 +26,7 @@ class Person
      * @ORM\Column(type="integer")
      */
     protected $id;
+
     /**
      * @var string
      * @ORM\Column(type="string", length=40)
@@ -37,26 +35,9 @@ class Person
     protected $name;
 
     /**
-     * @var int
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", precision=3, scale=1)
      */
-    protected $maxWeight;
-
-    /**
-     * @var $inventory Inventory[]
-     * @ORM\OneToMany(targetEntity="Inventory", mappedBy="person")
-     */
-    protected $inventory;
-
-
-    /**
-     * Person constructor.
-     * @param $inventory
-     */
-    public function __construct()
-    {
-        $this->inventory = new ArrayCollection();
-    }
+    protected $weight;
 
     /**
      * @return int
@@ -73,6 +54,7 @@ class Person
     {
         $this->id = $id;
     }
+
 
     /**
      * @return string
@@ -91,40 +73,25 @@ class Person
     }
 
     /**
-     * @return float
-     */
-    public function getMaxWeight()
-    {
-        return $this->maxWeight;
-    }
-
-    /**
-     * @param float $maxWeight
-     */
-    public function setMaxWeight($maxWeight)
-    {
-        $this->maxWeight = $maxWeight;
-    }
-
-    /**
      * @return mixed
      */
-    public function getInventory()
+    public function getWeight()
     {
-        return $this->inventory;
+        return $this->weight;
     }
 
     /**
-     * @param mixed $inventory
+     * @param mixed $weight
      */
-    public function setInventory($inventory)
+    public function setWeight($weight)
     {
-        $this->inventory = $inventory;
+        $this->weight = $weight;
     }
 
     function __toString()
     {
         return $this->name;
     }
+
 
 }
